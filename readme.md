@@ -15,14 +15,7 @@ To run the application, run the 4 external processes and then run the centeral p
 ./external TEMP ID &
 ./centeral CENT_TEMP &
 ````
-```C
-an example of the code would be like:
-$ ./external 100 	1 &
-$ ./external 22 	2 &
-$ ./external 50 	3 &
-$ ./external 40	4 &
-$ ./centeral 60 &
-```
+
 
 ## Brief Explanation of code.
 The external process genreates a **msquid** for it's sending que.
@@ -35,31 +28,14 @@ Centeral then sends its struct to the external processes.
 If the system is stable all the processes show the final temperature and terminate.
 
 
-+--------+        +------------------+       +------------------------+
 
-| Sender +------->+ Generate MSQUID  +------>+ Add Msg to Sending Que |
+## Test
 
-+--------+        +------------------+       +------------------------+
-                                                                       
-                                                                       
-
-+----------+       +---------------------+      +-----------------+     
-
-| Receiver +------>+ Get Sender's MSQUID +------+  Get Msg form   |     
-
-+----------+       +---------------------+      |  Sending Que    |     
-
-                                                +-----------------+     
-
-
-                       +---------------+                           
-
-                       |               |                           
-
-SENDER APPENDS--------->  SENDING QUE  +---------->RECIEVER DEQUES
-
-                       |               |                           
-
-                       +---------------+                          
-
-
+```C
+an example of the code would be like:
+$ ./external 100 	1 &
+$ ./external 22 	2 &
+$ ./external 50 	3 &
+$ ./external 40	4 &
+$ ./centeral 60 &
+```
