@@ -24,8 +24,8 @@ $ ./external 40	4 &
 $ ./centeral 60 &
 ```
 
-
-The external process genreates a msquid for it's sending que.
+## Brief Explanation of code.
+The external process genreates a **msquid** for it's sending que.
 The external process add a struct to it's sending que.
 The centeral process looks up the msquid for the external process and gets the message from the external sending que.
 
@@ -35,19 +35,31 @@ Centeral then sends its struct to the external processes.
 If the system is stable all the processes show the final temperature and terminate.
 
 
++--------+        +------------------+       +------------------------+
+
+| Sender +------->+ Generate MSQUID  +------>+ Add Msg to Sending Que |
 
 +--------+        +------------------+       +------------------------+
-| Sender +------->+ Generate MSQUID  +------>+ Add Msg to Sending Que |
-+--------+        +------------------+       +------------------------+
                                                                        
                                                                        
+
 +----------+       +---------------------+      +-----------------+     
+
 | Receiver +------>+ Get Sender's MSQUID +------+  Get Msg form   |     
+
 +----------+       +---------------------+      |  Sending Que    |     
+
                                                 +-----------------+     
 
+
                        +---------------+                           
+
                        |               |                           
+
 SENDER APPENDS--------->  SENDING QUE  +---------->RECIEVER DEQUES
+
                        |               |                           
+
                        +---------------+                          
+
+
