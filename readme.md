@@ -2,7 +2,7 @@
 The **IPC(inter process comunication)** has been implemented by using a message passing.
 The Message passing is implemened by using system calls**(for LINUX)**.
 
-The system calls used are ** msgget(), msgsnd(), msgrcv()**. msgget() generate a unique que id for a given que name.(creates the que if it's not present.), This que id is required to send and recieve the messages.
+The system calls used are **msgget(), msgsnd(), msgrcv()**. msgget() generate a unique que id for a given que name.(creates the que if it's not present.), This que id is required to send and recieve the messages.
 
 ## Synopsis
 The code implemened is a simple real life example. There is a centeral process ,and 4 external processes , each one has it's own temperature.
@@ -33,9 +33,9 @@ If the system is stable all the processes show the final temperature and termina
 
 ```C
 an example of the code would be like:
-$ ./external 100 	1 &
-$ ./external 22 	2 &
-$ ./external 50 	3 &
+$ ./external 100 1 &
+$ ./external 22 2 &
+$ ./external 50 3 &
 $ ./external 40	4 &
 $ ./centeral 60 &
 ```
